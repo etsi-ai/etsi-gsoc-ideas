@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etsi AI - GSoC 2026 Project Ideas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <img src="logo.jpg" alt="Etsi AI Logo" class="brand-logo">
+                    <span class="brand-text">Etsi AI</span>
+                </div>
+            </div>
+
+            <nav class="toc-nav">
+                <div class="nav-group">
+                    <span class="nav-label">Getting Started</span>
+                    <ul class="nav-list">
+                        <li><a href="#intro" class="nav-link active">Overview</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <span class="nav-label">Project Ideas</span>
+                    <ul class="nav-list">
+                        <li><a href="#1-etna-dynamic-autograd" class="nav-link">1. Dynamic Autograd</a></li>
+                        <li><a href="#2-etna-simd-backend" class="nav-link">2. SIMD Backend</a></li>
+                        <li><a href="#3-watchdog-streaming" class="nav-link">3. Streaming Drift</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="https://github.com/etsi-ai" target="_blank" class="footer-link">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                        </path>
+                    </svg>
+                    <span>View on GitHub</span>
+                </a>
+                <a href="https://discord.gg/VCeY6H72rq" target="_blank" class="footer-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037 13.56 13.56 0 0 0-.585 1.258 17.58 17.58 0 0 0-5.534 0 12.872 12.872 0 0 0-.585-1.258.074.074 0 0 0-.078-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.076.076 0 0 0-.04.106 13.84 13.84 0 0 0 1.23 1.994.074.074 0 0 0 .08.028 19.855 19.855 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z">
+                        </path>
+                    </svg>
+                    <span>Join Discord</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="content-wrapper">
+                <section id="intro" class="doc-section">
+                    <div class="hero-header">
+                        <!-- <div class="badge-pill">GSoC 2026</div> -->
+                        <h1>GSoC 2026 Project Ideas</h1>
+                        <!-- <p class="lead">
+                            We build high-performance machine learning tools with a philosophy of
+                            <strong class="text-highlight">Rust Core, Python Ease</strong>.
+                        </p> -->
+                    </div>
+
+                    <div class="prose">
+                        <p>
+                            Our goal for GSoC 2026 is to evolve our prototypes into production-grade systems
+                            by solving hard engineering problems in autograd engines, SIMD optimization,
+                            and distributed stream processing.
+                        </p>
+                    </div>
+
+
+                </section>
+
+                <hr class="section-divider">
+
+                <section id="1-etna-dynamic-autograd" class="doc-section project-section">
+                    <div class="section-header">
+                        <h2>1. Etna: Dynamic Autograd Engine (The "Graph" Upgrade)</h2>
+                    </div>
+
+                    <div class="prose">
+                        <p>
+                            Currently, <code>etna_core</code> relies on a rigid, sequential list of layers
+                            (<code>Vec&lt;LayerWrapper&gt;</code>), making it impossible to build modern non-linear
+                            architectures like ResNets (which need skip connections), Transformers, or RNNs. This
+                            project involves a fundamental rewrite of the Etna core to replace manual list-based
+                            backpropagation with a <strong>define-by-run Automatic Differentiation (Autograd)
+                                engine</strong>. The student will implement a "Tape-based" gradient tracking system in
+                            Rust, similar to PyTorch's backend.
+                        </p>
+                    </div>
+
+                    <h3>Project Scope</h3>
+                    <div class="prose">
+                        <p>
+                            The primary objective is the full integration of a define-by-run autograd engine into Etna.
+                            This entails implementing the core <code>Tensor</code> struct to wrap data and gradient
+                            history, constructing a Wengert list (Tape) for dynamic operation recording, and completely
+                            replacing the existing <code>SimpleNN</code> implementation. Furthermore, the
+                            <code>PyO3</code> bindings must be updated to expose this new Graph API, enabling the
+                            definition of complex models (such as ResNets) in Python while maintaining efficient
+                            execution in Rust.
+                        </p>
+                    </div>
+
+                    <h3>Expected Outcomes</h3>
+                    <ul class="checklist">
+                        <li><strong>Tensor Core:</strong> Implementation of a <code>Tensor</code> struct in Rust that
+                            wraps data and gradient history, replacing the current
+                            <code>Vec&lt;Vec&lt;f32&gt;&gt;</code> implementation.
+                        </li>
+                        <li><strong>Autograd Engine:</strong> A fully functional Wengert list (Tape) implementation that
+                            records operations (MatMul, Add, ReLU, Softmax) and executes backward passes dynamically.
+                        </li>
+                        <li><strong>Complex Architectures:</strong> Proof-of-concept implementation of a <strong>ResNet
+                                Block</strong> and a <strong>Transformer Attention Head</strong> using the new engine.
+                        </li>
+                        <li><strong>Python Integration:</strong> Updated <code>PyO3</code> bindings that expose the new
+                            Graph API to Python, allowing users to define complex models in Python that execute
+                            efficiently in Rust.</li>
+                    </ul>
+
+                    <h3>Skills</h3>
+                    <p>Rust (Intermediate/Advanced), Graph Theory, Calculus (Chain Rule), PyO3</p>
+
+                    <h3>Difficulty</h3>
+                    <p>Hard</p>
+
+                    <h3>Size</h3>
+                    <p>350 Hours</p>
+
+                    <h3>Mentors</h3>
+                    <p>
+                        Aamod Kumar (<code>aamodkumar@etsi</code>)<br>
+                        Soham Gore (<code>sohamgore@etsi</code>)
+                    </p>
+                </section>
+
+                <hr class="section-divider">
+
+                <section id="2-etna-simd-backend" class="doc-section project-section">
+                    <div class="section-header">
+                        <h2>2. Etna: SIMD-Accelerated Tensor Backend (The "Speed" Upgrade)</h2>
+                    </div>
+
+                    <div class="prose">
+                        <p>
+                            Etna is designed for high-performance machine learning, but the current implementation
+                            relies on standard Rust iterators (<code>input.iter().map(...)</code>). While safe, this
+                            approach fails to utilize CPU vectorization (AVX2/AVX-512) and suffers from poor cache
+                            locality due to the nested <code>Vec&lt;Vec&lt;f32&gt;&gt;</code> memory layout. This
+                            project focuses on pure performance engineering to replace the memory backend with a
+                            flattened, contiguous array structure and implement <strong>SIMD (Single Instruction,
+                                Multiple Data)</strong> kernels.
+                        </p>
+                    </div>
+
+                    <h3>Project Scope</h3>
+                    <div class="prose">
+                        <p>
+                            This project necessitates refactoring <code>etna_core</code> to utilize a flattened 1D
+                            vector representation for N-dimensional tensors, thereby maximizing cache hits. The central
+                            task involves writing custom <code>unsafe</code> Rust kernels using <code>std::arch</code>
+                            intrinsics (AVX2/AVX-512) for critical operations such as Dot Product and Matrix
+                            Multiplication. Additionally, Rayon must be integrated to parallelize operations across
+                            mini-batches to ensure optimal core utilization, with the resulting speedup validated
+                            through a comprehensive benchmark suite.
+                        </p>
+                    </div>
+
+                    <h3>Expected Outcomes</h3>
+                    <ul class="checklist">
+                        <li><strong>Contiguous Memory Layout:</strong> Refactoring <code>etna_core</code> to use a
+                            flattened 1D vector representation for N-dimensional tensors to maximize cache hits.</li>
+                        <li><strong>SIMD Kernels:</strong> Implementation of custom <code>unsafe</code> kernels using
+                            <code>std::arch</code> (AVX2/AVX-512) for critical operations: Dot Product, Matrix
+                            Multiplication, and Element-wise addition/activation.
+                        </li>
+                        <li><strong>Parallelism:</strong> Integration of <strong>Rayon</strong> to parallelize
+                            operations across mini-batches, ensuring 100% core utilization.</li>
+                        <li><strong>Benchmark Suite:</strong> A comprehensive benchmark report comparing Etna v1
+                            (Iterators) vs. Etna v2 (SIMD) vs. NumPy/PyTorch CPU.</li>
+                    </ul>
+
+                    <h3>Skills</h3>
+                    <p>Unsafe Rust, SIMD/Intrinsics, Performance Engineering, Benchmarking, Linear Algebra</p>
+
+                    <h3>Difficulty</h3>
+                    <p>Hard</p>
+
+                    <h3>Size</h3>
+                    <p>350 Hours</p>
+
+                    <h3>Mentors</h3>
+                    <p>
+                        Aamod Kumar (<code>aamodkumar@etsi</code>)<br>
+                        Soham Gore (<code>sohamgore@etsi</code>)
+                    </p>
+                </section>
+
+                <hr class="section-divider">
+
+                <section id="3-watchdog-streaming" class="doc-section project-section">
+                    <div class="section-header">
+                        <h2>3. Watchdog: Streaming Drift Detection with Kafka</h2>
+                    </div>
+
+                    <div class="prose">
+                        <p>
+                            Currently, <code>etsi-watchdog</code> operates strictly on batch data (static CSVs or
+                            DataFrames). To support modern MLOps pipelines, it must be capable of monitoring
+                            high-throughput, real-time data streams without manual intervention. This project will
+                            extend Watchdog to support <strong>real-time streaming drift detection</strong> by
+                            integrating with <strong>Apache Kafka</strong>.
+                        </p>
+                    </div>
+
+                    <h3>Project Scope</h3>
+                    <div class="prose">
+                        <p>
+                            The goal is to build a robust production system that transforms Watchdog into a live
+                            monitoring sentinel. This involves implementing a Kafka consumer to ingest feature streams
+                            and developing an efficient "sliding window" engine (Tumbling/Hopping windows) to calculate
+                            drift metrics incrementally. To ensure fault tolerance, <strong>Redis</strong> or
+                            <strong>RocksDB</strong> must be integrated to persist window state, preventing data loss
+                            during service restarts. The final solution is to be packaged within a production-ready
+                            <code>docker-compose</code> environment.
+                        </p>
+                    </div>
+
+                    <h3>Expected Outcomes</h3>
+                    <ul class="checklist">
+                        <li><strong>Kafka Consumer:</strong> A robust, fault-tolerant consumer module using
+                            <code>confluent-kafka</code> that ingests feature streams.
+                        </li>
+                        <li><strong>Windowing Engine:</strong> Implementation of <strong>Tumbling</strong> and
+                            <strong>Hopping</strong> windows that maintain statistical state in memory.
+                        </li>
+                        <li><strong>State Persistence:</strong> Integration with <strong>Redis</strong> or
+                            <strong>RocksDB</strong> to persist window state, ensuring data is not lost during service
+                            restarts.
+                        </li>
+                        <li><strong>Docker Deployment:</strong> A production-ready <code>docker-compose</code> setup
+                            containing Kafka, Zookeeper, Redis, and the Watchdog service.</li>
+                    </ul>
+
+                    <h3>Skills</h3>
+                    <p>Python, Apache Kafka, Async I/O, Distributed Systems, Docker</p>
+
+                    <h3>Difficulty</h3>
+                    <p>Medium</p>
+
+                    <h3>Size</h3>
+                    <p>175 Hours</p>
+
+                    <h3>Mentors</h3>
+                    <p>
+                        Aamod Kumar (<code>aamodkumar@etsi</code>)<br>
+                        Soham Gore (<code>sohamgore@etsi</code>)
+                    </p>
+                </section>
+
+                <!-- <hr class="section-divider">
+
+                <footer>
+                    <p>&copy; 2026 Etsi AI &bull; Released under BSD-2-Clause</p>
+                </footer> -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
