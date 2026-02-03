@@ -59,6 +59,13 @@ body {
     /* Main scroll is inside main element */
 }
 
+@media (max-width: 900px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+}
+
 /* Layout */
 .layout {
     display: flex;
@@ -93,6 +100,7 @@ body {
 
 .brand-logo {
     height: 40px;
+    width: auto;
     width: auto;
     border-radius: var(--radius-sm);
 }
@@ -168,6 +176,14 @@ body {
 
 .footer-link:hover {
     color: var(--text-primary);
+}
+
+/* Mobile Social Actions (Hidden by default) */
+.mobile-social-actions {
+    display: none;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 /* Main Content */
@@ -470,25 +486,53 @@ footer {
 @media (max-width: 900px) {
     .layout {
         flex-direction: column;
-        overflow-y: auto;
+        height: auto;
+        overflow-y: visible;
+        display: block;
     }
 
     .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
+        position: sticky;
+        top: 0;
+        z-index: 100;
         border-right: none;
         border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 1rem;
+        padding: 0.75rem 1.5rem;
+        background-color: rgba(15, 15, 18, 0.95);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-header {
+        padding: 0;
+        border: none;
+        width: 100%;
     }
 
     .toc-nav {
-        padding: 0 1.5rem;
+        display: none !important;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .mobile-social-actions {
+        display: flex;
+    }
+
+    .footer-link span {
+        display: inline;
+        /* Ensure text is visible for mobile footer */
     }
 
     .main-content {
         padding: 2rem 1.5rem;
         overflow-y: visible;
+        height: auto;
     }
 
     .specs-grid {
